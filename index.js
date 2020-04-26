@@ -5,9 +5,7 @@ const fs = require('fs');
 const fetch = require("node-fetch");
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-// const GROUPID = process.env.BETA_PI_ID;
-const GROUPID = process.env.MEME;
-
+const GROUPID = process.env.BETA_PI_ID;
 const print_out_group_id = (token=ACCESS_TOKEN,group_name='Beta Plague Inc.') => {
     fetch(`https://api.groupme.com/v3/groups?token=${token}`)
         .then((res)=>{
