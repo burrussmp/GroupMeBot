@@ -2,8 +2,6 @@ const express = require('express')
 require('dotenv').config()
 const fetch = require("node-fetch");
 
-
-
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const GROUPID = process.env.BETA_PI_ID;
 
@@ -231,8 +229,10 @@ const send_stats_to_beta_pi = async () => {
     await send_message_to_chat(token=ACCESS_TOKEN,groupId=GROUPID,message=not_congrats +'Emory still sucks hehe')
 }
 
-const handler (context,event) => {
-    console.log("Here");
-    // send_stats_to_beta_pi();
+exports.handler = async function(context,event) {
+    send_stats_to_beta_pi();
+    const message = "Success";
+    return { 
+        'message' : message
+    }  
 }
-
